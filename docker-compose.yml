@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  dir_sync:
+    image: sfilabs/dir_sync:latest
+    volumes:
+      - ./A:/sync/data/A
+      - ./B:/sync/data/B
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Toronto
+      - RSYNC_DELETE=true
+    healthcheck:
+      disable: true
